@@ -3,9 +3,8 @@
 ## 🚀 Usage
 1. Copy the script `user-data.sh`, modify it, and paste it as User Data.
    ![image](user_data.jpg)
-2. Provide the script as user data when launching an AWS EC2 instance.
-3. Once the instance is running (wait a few minutes, check the status checks), log in to Splunk Web and verify the installation.
-4. You don't need to go to the terminal!
+2. Once the instance is running (wait a few minutes, check the status checks), log in to Splunk Web and verify the installation.
+3. You don't need to go to the terminal!
 <!-- >[!NOTE] -->
 > **📝 NOTE**
 > - The script is designed for Ubuntu/Debian-based systems and uses Splunk Version 9.1.6.
