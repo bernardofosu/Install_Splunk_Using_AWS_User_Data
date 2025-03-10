@@ -105,15 +105,16 @@ sudo touch $SPLUNK_HOME/etc/.ui_login
 sudo chown -R splunk:splunk $SPLUNK_HOME
 
 # 2️⃣0️⃣ Enable Splunk Boot-Start
-sudo -u splunk $SPLUNK_HOME/bin/splunk enable boot-start -user splunk --accept-license --answer-yes --no-prompt
+sudo /opt/splunk/bin/splunk enable boot-start -user splunk --accept-license --answer-yes --no-prompt
 
 # 2️⃣1️⃣ Configure Splunk Web to Use SSL
 echo -e "[settings]\nstartwebserver = True\nenableSplunkWebSSL = True\nsslVersions = tls1.2\n" | sudo tee -a $SPLUNK_HOME/etc/system/local/web.conf
+sudo /opt/splunk/bin/splunk restart
 
 # 2️⃣2️⃣ Start Splunk
 sudo -u splunk $SPLUNK_HOME/bin/splunk start
 
-# 2️⃣5️⃣ Display Success Message (No Need Here)
+# 2️⃣3️⃣ Display Success Message (No Need Here)
 sudo apt install -y cowsay
 echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc
 source ~/.bashrc

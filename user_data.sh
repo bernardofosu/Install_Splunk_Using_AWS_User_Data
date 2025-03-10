@@ -108,15 +108,16 @@ touch /opt/splunk/etc/.ui_login
 chown -R splunk:splunk /opt/splunk
 
 # 2️⃣0️⃣ Enable Splunk Boot-Start
-sudo -u splunk /opt/splunk/bin/splunk enable boot-start -user splunk --accept-license --answer-yes --no-prompt
+sudo /opt/splunk/bin/splunk enable boot-start -user splunk --accept-license --answer-yes --no-prompt
 
 # 2️⃣1️⃣ Configure Splunk Web to Use SSL
 echo -e "[settings]\nstartwebserver = True\nenableSplunkWebSSL = True\nsslVersions = tls1.2\n" | tee -a /opt/splunk/etc/system/local/web.conf
+sudo /opt/splunk/bin/splunk restart
 
 # 2️⃣2️⃣ Start Splunk
-sudo -u splunk /opt/splunk/bin/splunk start
+sudo /opt/splunk/bin/splunk start
 
-# 2️⃣5️⃣ Display Success Message
+# 2️⃣3️⃣ Display Success Message
 echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc
 source ~/.bashrc
 /usr/games/cowsay -f tux "WoHoo..Welcome to ATLGSDACH EDU..You installed SPLUNK successfully"
