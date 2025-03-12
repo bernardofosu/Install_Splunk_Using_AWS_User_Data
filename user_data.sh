@@ -116,6 +116,7 @@ sudo /opt/splunk/bin/splunk restart
 
 # 2️⃣2️⃣ Start Splunk
 sudo /opt/splunk/bin/splunk start
+# note: splunk is currently running, please stop it before running enable/disable boot-start
 
 # 2️⃣3️⃣ Display Success Message
 echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc

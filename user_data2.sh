@@ -112,7 +112,7 @@ echo -e "[settings]\nstartwebserver = True\nenableSplunkWebSSL = True\nsslVersio
 sudo /opt/splunk/bin/splunk restart
 
 # 2️⃣2️⃣ Start Splunk
-sudo -u splunk $SPLUNK_HOME/bin/splunk start
+sudo /opt/splunk/bin/splunk start
 
 # 2️⃣3️⃣ Display Success Message (No Need Here)
 sudo apt install -y cowsay

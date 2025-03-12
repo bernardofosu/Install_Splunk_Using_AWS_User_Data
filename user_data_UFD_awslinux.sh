@@ -38,9 +38,10 @@ mv /opt/splunkforwarder-* /opt/splunkforwarder
 # 5️⃣ Configure Splunk Forwarder with Minimal Permissions
 chown -R splunkfwd:splunkfwd /opt/splunkforwarder
 chmod -R 750 /opt/splunkforwarder
+sudo usermod -s /bin/bash splunkfwd
 
 # 6️⃣ Enable Splunk Forwarder Boot-Start
-sudo -u splunkfwd /opt/splunkforwarder/bin/splunk enable boot-start -user splunkfwd --accept-license --answer-yes --no-prompt
+sudo /opt/splunkforwarder/bin/splunk enable boot-start -user splunkfwd --accept-license --answer-yes --no-prompt
 
 # 7️⃣ Configure Splunk Forwarder SSL and Deployment Server
 cat > /opt/splunkforwarder/etc/system/local/server.conf << EOF
@@ -49,8 +50,7 @@ sslVersions = tls1.2
 EOF
 
 # 8️⃣ Start Splunk Forwarder
-sudo -u splunkfwd /opt/splunkforwarder/bin/splunk start
-sudo /opt/splunkforwarder/bin/splunk enable boot-start -user splunkfwd --accept-license --answer-yes --no-prompt
+sudo /opt/splunkforwarder/bin/splunk start
 
 # 9️⃣ Display Success Message
 echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc
